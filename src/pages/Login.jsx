@@ -1,9 +1,9 @@
 import React from "react";
 import Login from "../components/Login";
-function LoginPage() {
+function LoginPage({ onLogin }) {
   return (
     <div>
-      <Login />
+      <Login onLogin={onLogin} />
     </div>
   );
 }

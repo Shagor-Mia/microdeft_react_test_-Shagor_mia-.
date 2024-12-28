@@ -5,8 +5,10 @@ import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import RegisterPage from "./pages/Register";
 import LoginPage from "./pages/Login";
+import { useState } from "react";
 
 function App() {
+  const [token, setToken] = useState("");
   return (
     <div className="w-full min-h-screen bg-gradient-to-t from-purple-400 to-blue-400">
       <ToastContainer
@@ -23,9 +25,12 @@ function App() {
       />
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home token={token} />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/"
+            element={!token && <LoginPage onLogin={setToken} />}
+          />
         </Routes>
       </Router>
     </div>

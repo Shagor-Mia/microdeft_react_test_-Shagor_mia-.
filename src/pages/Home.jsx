@@ -1,12 +1,13 @@
-import React from "react";
-import Courses from "../components/Courses";
 import Navbar from "../components/Navbar";
+import CoursesForm from "../components/Courses";
 
-function Home() {
+function Home({ token }) {
   return (
     <div>
       <Navbar />
-      <Courses />
+      <h1 className="text-2xl font-bold justify-items-center">Courses</h1>
+
+      <CoursesForm token={token} />
     </div>
   );
 }

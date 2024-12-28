@@ -76,7 +76,7 @@ function Register() {
           Are you signed up?{" "}
           <span>
             <Link
-              to={"/Login"}
+              to={"/"}
               className="hover:text-red-700 hover:bg-white hover:p-1"
             >
               Login

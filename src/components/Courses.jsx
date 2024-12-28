@@ -1,7 +1,7 @@
 import React from "react";
 
-function Courses() {
-  return <div>Courses</div>;
+function CoursesForm({ token }) {
+  return <div>CoursesOage</div>;
 }
 
-export default Courses;
+export default CoursesForm;
