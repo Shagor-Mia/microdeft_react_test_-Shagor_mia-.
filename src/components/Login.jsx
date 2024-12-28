@@ -25,6 +25,7 @@ function Login({ onLogin }) {
       const response = await axios.post("", { email, password });
       console.log(`Login Successfully :${response.data}`);
       toast.success(`Login Successfully.`);
+      console.log(response.data.token);
       onLogin(response.data.token);
     } catch (error) {
       console.error(`Registerd Failed :${error}`);

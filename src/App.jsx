@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import RegisterPage from "./pages/Register";
 import LoginPage from "./pages/Login";
 import { useState } from "react";
+import CourseListPage from "./pages/List";
 
 function App() {
   const [token, setToken] = useState("");
@@ -26,10 +27,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/home" element={<Home token={token} />} />
+          <Route path="/list" element={<CourseListPage token={token} />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route
             path="/"
-            element={!token && <LoginPage onLogin={setToken} />}
+            element={<LoginPage token={token} setToken={setToken} />}
           />
         </Routes>
       </Router>

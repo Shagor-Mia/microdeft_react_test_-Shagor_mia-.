@@ -5,9 +5,9 @@ function Home({ token }) {
   return (
     <div>
       <Navbar />
-      <h1 className="text-2xl font-bold justify-items-center">Courses</h1>
-
-      <CoursesForm token={token} />
+      <div className="m-4">
+        <CoursesForm token={token} />
+      </div>
     </div>
   );
 }
