@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigateTo = useNavigate();
 
   const handleLogForm = async (e) => {
     e.preventDefault();
@@ -22,14 +23,22 @@ function Login({ onLogin }) {
     console.log("Form Data Sent:", { email, password });
 
     try {
-      const response = await axios.post("", { email, password });
-      console.log(`Login Successfully :${response.data}`);
-      toast.success(`Login Successfully.`);
-      console.log(response.data.token);
-      onLogin(response.data.token);
+      // Correct API endpoint
+      const response = await axios.post(
+        "https://react-interview.crd4lc.easypanel.host/api/login",
+        { email, password }
+      );
+
+      // Success handling
+      const { token } = response.data.data;
+      console.log("Login Successful:", token);
+      toast.success("Login Successfully.");
+      onLogin(token); // Pass token to App
+      navigateTo("/home");
     } catch (error) {
-      console.error(`Registerd Failed :${error}`);
-      toast.error(`Registerd Failed.`);
+      // Error handling
+      console.error("Login Failed:", error.response?.data || error.message);
+      toast.error("Invalid credentials. Please try again.");
     }
   };
 
@@ -59,7 +68,7 @@ function Login({ onLogin }) {
           type="submit"
           className="bg-red-400 text-white p-2 rounded hover:bg-red-600 transition-all"
         >
-          <Link to={"/home"}>Login</Link>
+          Login
         </button>
         <p className="text-black">
           Are you not signed up?{" "}
