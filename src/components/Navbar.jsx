@@ -14,13 +14,14 @@ function Navbar() {
         </a>
         <ul className="hidden xl:flex items-center gap-12 font-semibold text-base">
           <li className="p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer">
-            Home
+            <Link to={"/home2"}>Home</Link>
+          </li>
+
+          <li className="p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer">
+            <Link to={"/list"}>List</Link>
           </li>
           <li className="p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer">
-            About
-          </li>
-          <li className="p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer">
-            Contact
+            <Link to={"/home"}>Create Course</Link>
           </li>
         </ul>
         <button className="bg-red-400 text-white px-4 py-2 rounded-md hover:bg-red-600 transition all">

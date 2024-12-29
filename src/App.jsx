@@ -7,6 +7,7 @@ import RegisterPage from "./pages/Register";
 import LoginPage from "./pages/Login";
 import { useState } from "react";
 import CourseListPage from "./pages/List";
+import Home2 from "./pages/Home2";
 
 function App() {
   const [token, setToken] = useState("");
@@ -26,6 +27,7 @@ function App() {
       />
       <Router>
         <Routes>
+          <Route path="/home2" element={<Home2 />} />
           <Route path="/home" element={<Home token={token} />} />
           <Route path="/list" element={<CourseListPage token={token} />} />
           <Route path="/register" element={<RegisterPage />} />

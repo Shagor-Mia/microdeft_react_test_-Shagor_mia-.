@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function CoursesForm({ token }) {
@@ -10,6 +11,7 @@ function CoursesForm({ token }) {
     badge_color: "",
     instructor_name: "",
   });
+  const navigateTo = useNavigate();
 
   const handleInputChange = (e) => {
     e.preventDefault();
@@ -37,6 +39,7 @@ function CoursesForm({ token }) {
       );
       console.log("Course created:", response.data);
       toast.success("Course created successfully.");
+      navigateTo("/list");
     } catch (error) {
       console.error("Error creating course:", error);
       toast.error("Error creating course");

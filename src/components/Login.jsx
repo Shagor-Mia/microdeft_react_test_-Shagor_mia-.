@@ -34,6 +34,8 @@ function Login({ onLogin }) {
       console.log("Login Successful:", token);
       toast.success("Login Successfully.");
       onLogin(token); // Pass token to App
+      localStorage.setItem("token", token);
+
       navigateTo("/home");
     } catch (error) {
       // Error handling
